@@ -3,7 +3,7 @@ import Card from "./components/Card";
 function App() {
   const data = {
     imgUrl:
-      "https://static.wikia.nocookie.net/gameofthrones/images/3/34/Eddard_Stark.jpg/revision/latest/scale-to-width-down/350?cb=20190701140812",
+      "https://static.wikia.nocookie.net/gameofthrones/images/3/34/Eddard_Stark.jpg/",
     desc: "ned stark",
   };
 
