@@ -7,11 +7,13 @@ function Card(props) {
   const imgUrl = data.imgUrl;
   const desc = data.desc;
 
+  const handleClick = props.handleClick;
+
   const checkClick = () => {
     if (hasBeenClicked) {
-      //endGame
-      console.log("Game over");
+      handleClick(true);
     } else {
+      handleClick(false);
       setHasBeenClicked(true);
     }
   };
