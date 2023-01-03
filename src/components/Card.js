@@ -10,6 +10,7 @@ function Card(props) {
   const handleClick = props.handleClick;
 
   const checkClick = () => {
+    console.log(hasBeenClicked);
     if (hasBeenClicked) {
       handleClick(true);
     } else {

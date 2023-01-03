@@ -6,6 +6,8 @@ import cardData from "./data/card-data.json";
 function App() {
   const [gameOver, setGameOver] = useState(false);
   const [cards, setCards] = useState(cardData.cards);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
 
   /*
   Fisher-Yates shuffle algorithm from stack overflow: 
@@ -33,9 +35,13 @@ function App() {
 
   const handleClick = (isRepeatedClick) => {
     if (isRepeatedClick) {
+      console.log(isRepeatedClick);
       setGameOver(true);
+      if (currentScore > highScore) setHighScore(currentScore);
+      setCurrentScore(0);
     } else {
       console.log("safe click");
+      setCurrentScore(currentScore + 1);
     }
   };
 
@@ -45,9 +51,13 @@ function App() {
       <div className="App">
         <h1>Memory Game</h1>
         <h3>Play for fun</h3>
+        <div className="scores">
+          <p className="current-score">Current Score: {currentScore}</p>
+          <p className="high-score">High Score: {highScore}</p>
+        </div>
         <div className="cards-container">
           {cards.map((card) => (
-            <Card key={uniqid()} data={card} handleClick={handleClick} />
+            <Card key={card.id} data={card} handleClick={handleClick} />
           ))}
         </div>
       </div>
