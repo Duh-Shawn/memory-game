@@ -7,12 +7,13 @@ function Card(props) {
   const imgUrl = data.imgUrl;
   const desc = data.desc;
 
-  const setGameOver = props.setGameOver;
+  const handleClick = props.handleClick;
 
   const checkClick = () => {
     if (hasBeenClicked) {
-      setGameOver(true);
+      handleClick(true);
     } else {
+      handleClick(false);
       setHasBeenClicked(true);
     }
   };
@@ -20,7 +21,7 @@ function Card(props) {
   return (
     <div className="card" onClick={checkClick}>
       <div>
-        <img src={imgUrl} alt=""></img>
+        <img src={imgUrl} alt="" width="250" height="250"></img>
         <p>{desc}</p>
       </div>
     </div>
