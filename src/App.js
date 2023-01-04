@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import uniqid from "uniqid";
 import Card from "./components/Card";
 import cardData from "./data/card-data.json";
 
@@ -45,6 +44,10 @@ function App() {
     }
   };
 
+  const restartGame = () => {
+    setGameOver(false);
+  };
+
   if (!gameOver) {
     shuffle(cards);
     return (
@@ -63,7 +66,12 @@ function App() {
       </div>
     );
   }
-  return <div>Game Over!</div>;
+  return (
+    <div class="game-over-container">
+      <p>Game Over!</p>
+      <button onClick={restartGame}>Play Again</button>
+    </div>
+  );
 }
 
 export default App;
