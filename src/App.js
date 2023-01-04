@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
 import cardData from "./data/card-data.json";
+import "./styles/app.scss";
 
 function App() {
   const [gameOver, setGameOver] = useState(false);
@@ -52,12 +53,13 @@ function App() {
     shuffle(cards);
     return (
       <div className="App">
-        <h1>Memory Game</h1>
-        <h3>Play for fun</h3>
-        <div className="scores">
-          <p className="current-score">Current Score: {currentScore}</p>
-          <p className="high-score">High Score: {highScore}</p>
-        </div>
+        <header>
+          <h1>GOT Memory Game</h1>
+          <div className="scores">
+            <p className="current-score">Current Score: {currentScore}</p>
+            <p className="high-score">High Score: {highScore}</p>
+          </div>
+        </header>
         <div className="cards-container">
           {cards.map((card) => (
             <Card key={card.id} data={card} handleClick={handleClick} />
@@ -68,7 +70,9 @@ function App() {
   }
   return (
     <div class="game-over-container">
-      <p>Game Over!</p>
+      <h1>Game Over!</h1>
+      <h2>You Scored: {currentScore}</h2>
+      <h2>High Score: {highScore}</h2>
       <button onClick={restartGame}>Play Again</button>
     </div>
   );

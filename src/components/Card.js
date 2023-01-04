@@ -21,10 +21,8 @@ function Card(props) {
 
   return (
     <div className="card" onClick={checkClick}>
-      <div>
-        <img src={imgUrl} alt="" width="250" height="250"></img>
-        <p>{desc}</p>
-      </div>
+      <img src={imgUrl} alt="{desc}"></img>
+      <p>{desc}</p>
     </div>
   );
 }
