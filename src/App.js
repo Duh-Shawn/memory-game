@@ -14,17 +14,17 @@ function App() {
   https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   */
   const shuffleCards = () => {
-    //create a shallow copy of the cards array so we can set cards state later
+    // create a shallow copy of the cards array so we can set cards state later
     const array = [...cards];
 
-    let currentIndex = array.length,
-      randomIndex;
+    let currentIndex = array.length;
+    let randomIndex;
 
     // While there remain elements to shuffle.
     while (currentIndex !== 0) {
       // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
+      currentIndex -= 1;
 
       // And swap it with the current element.
       [array[currentIndex], array[randomIndex]] = [
@@ -33,7 +33,7 @@ function App() {
       ];
     }
 
-    //update state of the cards array to a new ordered array
+    // update state of the cards array to a new ordered array
     setCards(array);
   };
 
@@ -75,11 +75,13 @@ function App() {
     );
   }
   return (
-    <div class="game-over-container">
+    <div className="game-over-container">
       <h1>Game Over!</h1>
       <h2>You Scored: {currentScore}</h2>
       <h2>High Score: {highScore}</h2>
-      <button onClick={restartGame}>Play Again</button>
+      <button type="button" onClick={restartGame}>
+        Play Again
+      </button>
     </div>
   );
 }
