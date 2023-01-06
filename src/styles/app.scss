@@ -17,25 +17,28 @@ body {
 
 #root {
   height: 100%;
-}
-
-#root {
   max-width: 900px;
   margin: auto;
+}
+
+h1,
+h3,
+.scores {
+  text-align: center;
 }
 
 header {
   text-align: center;
   width: 100%;
   padding-top: 25px;
-}
 
-.scores{
+  .scores {
     margin-top: 5px;
     display: flex;
     justify-content: space-around;
     margin-left: 150px;
     margin-right: 150px;
+  }
 }
 
 .cards-container {
@@ -44,38 +47,32 @@ header {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
-}
 
-.card {
-  background-color: rgb(238, 238, 238);
-  border: solid;
-  border-radius: 5px;
-  border-color: rgb(238, 238, 238);
-  width: 150px;
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  .card {
+    background-color: rgb(238, 238, 238);
+    border: solid;
+    border-radius: 5px;
+    border-color: rgb(238, 238, 238);
+    max-width: 150px;
+    max-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 
-  img {
-    flex: 1;
-    object-fit: cover;
-    height: 100px;
-    width: 100%;
+    img {
+      flex: 1;
+      object-fit: cover;
+      height: 100px;
+      width: 100%;
+    }
+
+    p {
+      flex: 0.25;
+      color: black;
+    }
   }
-
-  p {
-    flex: 0.25;
-    color: black;
-  }
-}
-
-h1,
-h3,
-.scores {
-  text-align: center;
 }
 
 .game-over-container {
