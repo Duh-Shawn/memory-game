@@ -41,7 +41,6 @@ function App() {
     if (repeatedClick) {
       setGameOver(true);
       if (currentScore > highScore) setHighScore(currentScore);
-      setCurrentScore(0);
     } else {
       setCurrentScore(currentScore + 1);
       shuffleCards();
@@ -49,6 +48,7 @@ function App() {
   };
 
   const restartGame = () => {
+    setCurrentScore(0);
     setGameOver(false);
   };
 
