@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./components/Card";
 import cardData from "./data/card-data.json";
 import "./styles/app.scss";
@@ -13,12 +13,15 @@ function App() {
   Fisher-Yates shuffle algorithm from stack overflow: 
   https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
   */
-  const shuffle = (array) => {
+  const shuffleCards = () => {
+    //create a shallow copy of the cards array so we can set cards state later
+    const array = [...cards];
+
     let currentIndex = array.length,
       randomIndex;
 
     // While there remain elements to shuffle.
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       // Pick a remaining element.
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
@@ -30,18 +33,18 @@ function App() {
       ];
     }
 
-    return array;
+    //update state of the cards array to a new ordered array
+    setCards(array);
   };
 
-  const handleClick = (isRepeatedClick) => {
-    if (isRepeatedClick) {
-      console.log(isRepeatedClick);
+  const handleClick = (repeatedClick) => {
+    if (repeatedClick) {
       setGameOver(true);
       if (currentScore > highScore) setHighScore(currentScore);
       setCurrentScore(0);
     } else {
-      console.log("safe click");
       setCurrentScore(currentScore + 1);
+      shuffleCards();
     }
   };
 
@@ -49,8 +52,11 @@ function App() {
     setGameOver(false);
   };
 
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
   if (!gameOver) {
-    shuffle(cards);
     return (
       <div className="App">
         <header>

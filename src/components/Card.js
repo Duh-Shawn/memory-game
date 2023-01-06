@@ -10,11 +10,17 @@ function Card(props) {
   const handleClick = props.handleClick;
 
   const checkClick = () => {
-    console.log(hasBeenClicked);
+    //card as already been previously clicked
+
     if (hasBeenClicked) {
+      //call parent's function 'handleclick' which will trigger an endgame
       handleClick(true);
-    } else {
+    }
+    //card has not been clicked prior to now
+    else {
+      //parent's function 'handleclick' will implement scoreboard and shuffle the board
       handleClick(false);
+      //card updates its own state to track that it now has been clicked before
       setHasBeenClicked(true);
     }
   };
